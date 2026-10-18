@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<meta name="description" content="Tianle Li — Shanghai Jiao Tong University undergraduate interested in robot learning, data-efficient manipulation, and egocentric demonstration data.">
+<title>Tianle Li — Robot Learning</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#fbfbf9, #111210);
+  --surface: light-dark(#ffffff, #191a17);
+  --text: light-dark(#20221f, #f2f2ed);
+  --muted: light-dark(#6f746d, #a2a69e);
+  --line: light-dark(#e6e8e1, #30332d);
+  --accent: light-dark(#315c45, #a9d8b8);
+  --accent-soft: light-dark(#edf4ee, #202f25);
+  --chip: light-dark(#f1f2ee, #242620);
+  --shadow: 0 16px 44px light-dark(rgb(25 35 25 / 5%), rgb(0 0 0 / 20%));
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.site-root { min-height: 100vh; background: var(--bg); }
+.nav-wrap { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: light-dark(rgb(251 251 249 / 92%), rgb(17 18 16 / 92%)); backdrop-filter: blur(14px); }
+nav { max-width: 1080px; margin: 0 auto; min-height: 72px; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 750; letter-spacing: -.02em; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: #fff; background: #315c45; font-size: 13px; letter-spacing: -.04em; }
+.nav-links { display: flex; align-items: center; gap: 25px; font-size: 13px; color: var(--muted); }
+.nav-links a:hover, .text-link:hover { color: var(--accent); }
+.nav-cta { border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; color: var(--text) !important; }
+.menu-toggle { display: none; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; color: var(--text); background: var(--surface); }
+main { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+.hero { min-height: 570px; display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 60px; padding: 88px 0 82px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 750; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+h1 { margin: 20px 0 16px; max-width: 650px; font-size: clamp(46px, 7vw, 76px); line-height: 1.02; letter-spacing: -.065em; font-weight: 720; }
+.hero-subtitle { margin: 0; color: var(--muted); font-size: clamp(17px, 2vw, 20px); line-height: 1.65; max-width: 590px; }
+.hero-subtitle strong { color: var(--text); font-weight: 600; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 17px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; font-weight: 650; transition: transform .18s ease, border-color .18s ease; }
+.button:hover { transform: translateY(-2px); border-color: var(--accent); }
+.button.primary { color: #fff; background: #315c45; border-color: #315c45; }
+.button.primary:hover { background: #244a35; }
+.hero-note { margin-top: 20px; color: var(--muted); font-size: 12px; }
+.profile-card { padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }
+.card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.mono-symbol { display: grid; place-items: center; width: 100%; aspect-ratio: 1.13; border-radius: 16px; background: var(--accent-soft); color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: clamp(48px, 6vw, 76px); letter-spacing: -.1em; }
+.profile-card h2 { margin: 23px 0 4px; font-size: 18px; letter-spacing: -.03em; }
+.profile-card p { margin: 0; font-size: 13px; color: var(--muted); }
+.profile-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.pill { display: inline-flex; border-radius: 999px; padding: 6px 10px; background: var(--chip); color: var(--muted); font-size: 11px; }
+.section { padding: 76px 0; border-top: 1px solid var(--line); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 30px; }
+.kicker { margin-bottom: 8px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+h2.section-title { margin: 0; font-size: clamp(29px, 4vw, 40px); line-height: 1.15; letter-spacing: -.05em; }
+.section-intro { max-width: 490px; margin: 0; color: var(--muted); font-size: 14px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.info-panel { padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: 16px; }
+.info-panel h3 { margin: 0 0 12px; font-size: 15px; letter-spacing: -.02em; }
+.info-panel p { margin: 0; color: var(--muted); font-size: 14px; }
+.education-row { display: flex; align-items: start; justify-content: space-between; gap: 18px; }
+.school { font-weight: 700; font-size: 16px; }
+.degree { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.date-placeholder { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.skill-group { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.skill-group h3 { margin: 0 0 16px; font-size: 14px; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-list span { padding: 7px 10px; border-radius: 8px; background: var(--chip); color: var(--muted); font-size: 12px; }
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.project-card { display: flex; flex-direction: column; min-height: 280px; padding: 25px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); transition: transform .2s ease, box-shadow .2s ease; }
+.project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.project-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 22px; }
+.project-number { color: var(--accent); font-family: ui-monospace, monospace; font-size: 12px; }
+.placeholder-label { border: 1px dashed var(--line); border-radius: 999px; padding: 5px 9px; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+.project-card h3 { margin: 0 0 10px; font-size: 19px; letter-spacing: -.035em; }
+.project-card p { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+.project-tags span { color: var(--accent); background: var(--accent-soft); padding: 5px 8px; border-radius: 6px; font-size: 11px; }
+.project-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 22px; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.text-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; }
+.timeline { display: grid; grid-template-columns: 140px 1fr; gap: 25px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.timeline:last-child { border-bottom: 0; }
+.timeline-label { color: var(--muted); font-size: 12px; }
+.timeline h3 { margin: 0 0 6px; font-size: 15px; }
+.timeline p { margin: 0; color: var(--muted); font-size: 13px; }
+.contact-panel { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 32px; border: 1px solid var(--line); border-radius: 20px; background: var(--accent-soft); }
+.contact-panel h3 { margin: 0 0 8px; font-size: 24px; letter-spacing: -.04em; }
+.contact-panel p { max-width: 540px; margin: 0; color: var(--muted); font-size: 14px; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+footer { max-width: 1080px; margin: 0 auto; padding: 25px 28px 34px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 11px; }
+.edit-note { margin-top: 18px; padding: 12px 14px; border-left: 3px solid var(--accent); color: var(--muted); background: var(--surface); font-size: 12px; }
+@media (max-width: 760px) {
+  nav { min-height: 66px; padding: 0 20px; }
+  .menu-toggle { display: inline-flex; }
+  .nav-links { display: none; position: absolute; top: 65px; left: 0; right: 0; padding: 18px 20px 22px; border-bottom: 1px solid var(--line); background: var(--bg); flex-direction: column; align-items: stretch; gap: 14px; }
+  .nav-links.open { display: flex; }
+  .nav-cta { text-align: center; }
+  main { padding: 0 20px; }
+  .hero { min-height: auto; grid-template-columns: 1fr; gap: 35px; padding: 65px 0 58px; }
+  .profile-card { max-width: 420px; }
+  .mono-symbol { aspect-ratio: 1.7; }
+  .section { padding: 57px 0; }
+  .section-heading { align-items: start; flex-direction: column; }
+  .about-grid, .project-grid { grid-template-columns: 1fr; }
+  .skill-groups { grid-template-columns: 1fr; }
+  .contact-panel { align-items: start; flex-direction: column; padding: 25px; }
+  .timeline { grid-template-columns: 1fr; gap: 8px; }
+  footer { padding: 22px 20px 28px; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+</style>
+</head>
+<body>
+<div class="site-root">
+  <div class="nav-wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Tianle Li home"><span class="brand-mark">TL</span><span>Tianle Li</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">Focus</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a class="nav-cta" href="#contact">Get in touch ↗</a>
+      </div>
+    </nav>
+  </div>
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Robot Learning · Demonstration Data · Machine Learning</div>
+        <h1>Hi, I'm<br>Tianle Li<span style="color:var(--accent)">.</span></h1>
+        <p class="hero-subtitle">I’m an undergraduate in Computer Science and Technology at <strong>Shanghai Jiao Tong University</strong>, interested in robot learning, data-efficient manipulation, and learning from egocentric observations.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#research">Explore research <span aria-hidden="true">↘</span></a>
+          <a class="button" href="https://github.com/TimLeeSJTU" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+        <p class="hero-note">B.S. in Computer Science · Expected July 2027 · GPA 3.68/4.3</p>
+      </div>
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="card-top"><span>Research Profile</span><span>SJTU</span></div>
+        <div class="mono-symbol" aria-hidden="true">{ RL }</div>
+        <h2>Learning from better data.</h2>
+        <p>Robot learning, demonstration collection, and robust manipulation.</p>
+        <div class="profile-meta"><span class="pill">Robot Learning</span><span class="pill">Data Collection</span><span class="pill">C++ · Python</span></div>
+      </aside>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading"><div><div class="kicker">01 / About</div><h2 class="section-title">Research interests.</h2></div><p class="section-intro">My current interests center on how to collect more informative demonstrations and learn robust manipulation policies from them.</p></div>
+      <div class="about-grid">
+        <article class="info-panel"><h3>Demonstration data and data efficiency</h3><p>Methods for collecting diverse, informative robot demonstrations with less human effort, including online data-coverage guidance and egocentric video.</p></article>
+        <article class="info-panel"><h3>Robot policy learning</h3><p>Learning manipulation policies from complementary visual observations, with an interest in robustness when wrist-camera observations are ambiguous or occluded.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="section-heading"><div><div class="kicker">02 / Research</div><h2 class="section-title">Selected research.</h2></div><p class="section-intro">Research contributions focused on demonstration collection, manipulation learning, and failure-aware robot behavior.</p></div>
+      <div class="timeline">
+        <div class="timeline-label">Co-author · 2026</div>
+        <div><h3>EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning</h3><p>Contributed to research on a robot-free demonstration collection interface combining wrist- and egocentric observations with online visual-geometric data-coverage guidance. The work also introduces a Gated Egocentric Residual Policy to use egocentric context when wrist-view observations are ambiguous.</p><p style="margin-top:10px"><a class="text-link" href="https://silicx.github.io/EgoGuide/" target="_blank" rel="noreferrer">Project page ↗</a> <span style="color:var(--muted)">·</span> <a class="text-link" href="paper.pdf">Read paper ↗</a></p></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-label">Research contribution</div>
+        <div><h3>Diagnose, Correct, and Learn from Manipulation Failures via Visual Symbols</h3><p>Assisted with data preparation and model evaluation for work on enabling robots to diagnose, correct, and learn from manipulation failures. Accepted at CVPR 2026.</p></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-label">Apr 2025 – Jun 2026</div>
+        <div><h3>Low-Cost exUMI with Vision and Tactile Perception</h3><p>Contributed to a portable hardware–software interface for robot-free manipulation data collection using consumer VR hardware and a handheld gripper. Participated in real-world system validation and exploration of image-similarity-based data-quality assessment.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-heading"><div><div class="kicker">03 / Experience</div><h2 class="section-title">Industry experience.</h2></div></div>
+      <div class="timeline">
+        <div class="timeline-label">Jul 2026 – Present</div>
+        <div><h3>Android Method-Governance Data Pipeline <span style="color:var(--muted);font-weight:400">· ByteDance</span></h3><p>Built an engineering pipeline for Douyin Android low-frequency method governance, covering data collection, de-obfuscation, aggregation, storage, scheduled execution, and merge-request-level reporting. Diagnosed de-obfuscation and R8 inline-mapping issues, reducing false method-count changes by approximately 250,000 and de-obfuscation failures by approximately 100,000. Automated recurring workflows with retries, caching, checkpoint recovery, and anomaly handling.</p></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-label">Mar 2026 – Jun 2026</div>
+        <div><h3>Esports Event Integration for Xiaomi Super Island <span style="color:var(--muted);font-weight:400">· Bilibili</span></h3><p>Translated esports livestreaming scenarios into product requirements, including pre-match countdowns, live scores and game-state updates, and post-match card dismissal. Coordinated requirement details, field mapping, testing resources, and cross-team follow-up across product, engineering, and QA teams.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading"><div><div class="kicker">04 / Selected work</div><h2 class="section-title">Technical projects.</h2></div><p class="section-intro">Course projects that demonstrate systems implementation and machine-learning experimentation.</p></div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-head"><span class="project-number">PROJECT / 01</span><span class="placeholder-label">Operating systems</span></div>
+          <h3>Linux Kernel Feature Simulation</h3>
+          <p>Independently implemented a C-based operating-system simulator with a block-disk server and file-system server. Supported disk read/write commands and file-system operations including formatting, file and directory management, navigation, and file I/O.</p>
+          <div class="project-tags"><span>C</span><span>Operating Systems</span><span>File Systems</span></div>
+          <div class="project-footer"><span>May 2025 – Jun 2025</span><a class="text-link" href="https://github.com/TimLeeSJTU" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+        </article>
+        <article class="project-card">
+          <div class="project-head"><span class="project-number">PROJECT / 02</span><span class="placeholder-label">Machine learning</span></div>
+          <h3>Sketch Recognition and Generation</h3>
+          <p>Trained a VAE-based Sketch-RNN model on QuickDraw for sketch generation. Explored temperature-based sampling and latent-space interpolation to study output diversity and transitions between sketches.</p>
+          <div class="project-tags"><span>Python</span><span>VAE</span><span>Sketch-RNN</span><span>QuickDraw</span></div>
+          <div class="project-footer"><span>Dec 2025 – Jan 2026</span><a class="text-link" href="https://github.com/TimLeeSJTU" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-heading"><div><div class="kicker">05 / Education</div><h2 class="section-title">Education.</h2></div></div>
+      <div class="timeline">
+        <div class="timeline-label">Sep 2023 – Jul 2027</div>
+        <div><h3>Shanghai Jiao Tong University</h3><div class="degree">B.S. in Computer Science and Technology</div><p>GPA: 3.68/4.3. Relevant coursework: Machine Learning, Algorithms and Complexity, Modern Operating Systems, Linear Algebra, and Mathematics for Computer Science.</p></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-label">Jun 2024 – Aug 2024</div>
+        <div><h3>Yale University</h3><div class="degree">Summer Session</div><p>Coursework: Math Tools for Computer Science and Introduction to Philosophy.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading"><div><div class="kicker">06 / Toolkit</div><h2 class="section-title">Skills.</h2></div></div>
+      <div class="skill-groups">
+        <article class="skill-group"><h3>Programming</h3><div class="skill-list"><span>C++</span><span>Python</span><span>C</span></div></article>
+        <article class="skill-group"><h3>Technical areas</h3><div class="skill-list"><span>Robot Learning</span><span>Model Evaluation</span><span>Data Pipelines</span><span>Linux</span></div></article>
+        <article class="skill-group"><h3>Additional</h3><div class="skill-list"><span>LaTeX</span><span>TOEFL 104</span><span>CET-6 614</span></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact-panel">
+        <div><div class="kicker">07 / Contact</div><h3>Let’s connect.</h3><p>For research opportunities, collaboration, or conversations about robot learning and data-efficient manipulation, feel free to reach out.</p><p style="margin-top:10px;font-size:12px">Email: <strong>TimLeeSJTU@gmail.com</strong></p></div>
+        <div class="contact-actions"><a class="button primary" href="https://github.com/TimLeeSJTU" target="_blank" rel="noreferrer">GitHub profile ↗</a><a class="button" href="mailto:TimLeeSJTU@gmail.com">Email me ↗</a></div>
+      </div>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Tianle Li. Built with HTML, CSS & JavaScript.</span><a href="#home" class="text-link">Back to top ↑</a></footer>
+</div>
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+});
+navLinks.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
